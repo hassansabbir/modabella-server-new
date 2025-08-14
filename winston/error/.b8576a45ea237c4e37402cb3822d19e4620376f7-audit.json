@@ -1,0 +1,30 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "D:\\Sabbir\\Projects\\MyP\\modabella-server-new\\winston\\error\\.b8576a45ea237c4e37402cb3822d19e4620376f7-audit.json",
+    "files": [
+        {
+            "date": 1755152868101,
+            "name": "D:\\Sabbir\\Projects\\MyP\\modabella-server-new\\winston\\error\\14-08-2025-12-error.log",
+            "hash": "8e8358a7a073c3aad531693684a2592eaacb7d2cc21bb91ec6fc88b1f06c9df8"
+        },
+        {
+            "date": 1755155718374,
+            "name": "D:\\Sabbir\\Projects\\MyP\\modabella-server-new\\winston\\error\\14-08-2025-13-error.log",
+            "hash": "8dd4b121f5735cba36db3e8dbb5c2cbabc1109b2c4c69d88a3586dba28c64658"
+        },
+        {
+            "date": 1755163894228,
+            "name": "D:\\Sabbir\\Projects\\MyP\\modabella-server-new\\winston\\error\\14-08-2025-15-error.log",
+            "hash": "7182c686b3778db81475881717fa454a94abd0740d1fa288a1eaa446e8af9eb5"
+        },
+        {
+            "date": 1755166971580,
+            "name": "D:\\Sabbir\\Projects\\MyP\\modabella-server-new\\winston\\error\\14-08-2025-16-error.log",
+            "hash": "0cd47f9972cddfa241bcc281812c717402849d4a41eb30d064f8eb566fb08fd8"
+        }
+    ],
+    "hashType": "sha256"
+}

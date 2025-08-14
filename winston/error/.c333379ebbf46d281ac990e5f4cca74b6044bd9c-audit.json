@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "D:\\Sabbir\\Projects\\MyP\\backend-tamplate\\winston\\error\\.c333379ebbf46d281ac990e5f4cca74b6044bd9c-audit.json",
+    "files": [
+        {
+            "date": 1754290130137,
+            "name": "D:\\Sabbir\\Projects\\MyP\\backend-tamplate\\winston\\error\\04-08-2025-12-error.log",
+            "hash": "cb593f8658c685639fb66720f66a4f795f99f32cac7bc077032df69ad15cb9a5"
+        },
+        {
+            "date": 1754296510225,
+            "name": "D:\\Sabbir\\Projects\\MyP\\backend-tamplate\\winston\\error\\04-08-2025-14-error.log",
+            "hash": "15b1a7b4f590a6bf0d818c9d55101e60aca4f1026782469e9585bf152406849f"
+        },
+        {
+            "date": 1754303517508,
+            "name": "D:\\Sabbir\\Projects\\MyP\\backend-tamplate\\winston\\error\\04-08-2025-16-error.log",
+            "hash": "d93c86968d181ab652fd88dd2230650545518f271a52fbacb0de4cb193187898"
+        }
+    ],
+    "hashType": "sha256"
+}
