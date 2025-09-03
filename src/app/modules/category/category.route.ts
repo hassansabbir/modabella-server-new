@@ -1,33 +1,36 @@
-import express from 'express'
-import { USER_ROLES } from '../../../enums/user'
-import auth from '../../middlewares/auth'
-import validateRequest from '../../middlewares/validateRequest'
-import { CategoryController } from './category.controller'
-import { CategoryValidation } from './category.validation'
-import fileUploadHandler from '../../middlewares/fileUploaderHandler'
-const router = express.Router()
+import express from "express";
+import { USER_ROLES } from "../../../enums/user";
+import auth from "../../middlewares/auth";
+import validateRequest from "../../middlewares/validateRequest";
+import { CategoryController } from "./category.controller";
+import { CategoryValidation } from "./category.validation";
+import fileUploadHandler from "../../middlewares/fileUploaderHandler";
+const router = express.Router();
 
 router.post(
-  '/create-service',
-  auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(),
+  "/create",
+  auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
+  fileUploadHandler(),
   validateRequest(CategoryValidation.createCategoryZodSchema),
-  CategoryController.createCategory,
-)
+  CategoryController.createCategory
+);
 
 router
-  .route('/:id')
+  .route("/:id")
   .patch(
-    auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(),
-    CategoryController.updateCategory,
+    auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
+    fileUploadHandler(),
+    CategoryController.updateCategory
   )
   .delete(
     auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
-    CategoryController.deleteCategory,
-  )
+    CategoryController.deleteCategory
+  );
 
-router.get('/',
+router.get(
+  "/",
   auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN, USER_ROLES.USER),
-  CategoryController.getCategories,
-)
+  CategoryController.getCategories
+);
 
-export const CategoryRoutes = router
+export const CategoryRoutes = router;
