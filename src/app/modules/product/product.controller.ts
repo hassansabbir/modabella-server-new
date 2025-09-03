@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
-import { CategoryService } from "./category.service";
+import { ProductService } from "./product.service";
 
-const createCategory = catchAsync(async (req: Request, res: Response) => {
+const createProduct = catchAsync(async (req: Request, res: Response) => {
   const serviceData = req.body;
 
   let image = "";
@@ -16,18 +16,18 @@ const createCategory = catchAsync(async (req: Request, res: Response) => {
     image,
   };
 
-  const result = await CategoryService.createCategoryToDB(data);
+  const result = await ProductService.createProductToDB(data);
 
   sendResponse(res, {
     success: true,
     statusCode: StatusCodes.OK,
-    message: "Category create successfully",
+    message: "Product create successfully",
     data: result,
   });
 });
 
-const getCategories = catchAsync(async (req: Request, res: Response) => {
-  const result = await CategoryService.getCategoriesFromDB();
+const getProducts = catchAsync(async (req: Request, res: Response) => {
+  const result = await ProductService.getProductsFromDB();
 
   sendResponse(res, {
     success: true,
@@ -37,20 +37,32 @@ const getCategories = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const updateCategory = catchAsync(async (req: Request, res: Response) => {
+const getProductById = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const updateCategoryData = req.body;
+  const result = await ProductService.getProductByIdFromDB(id);
+
+  sendResponse(res, {
+    success: true,
+    statusCode: StatusCodes.OK,
+    message: "Category retrieved successfully",
+    data: result,
+  });
+});
+
+const updateProduct = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const updateProductData = req.body;
 
   let image;
   if (req.files && "image" in req.files && req.files.image[0]) {
     image = `/images/${req.files.image[0].filename}`;
   }
   const data = {
-    ...updateCategoryData,
+    ...updateProductData,
     image,
   };
 
-  const result = await CategoryService.updateCategoryToDB(id, data);
+  const result = await ProductService.updateProductToDB(id, data);
 
   sendResponse(res, {
     success: true,
@@ -60,9 +72,9 @@ const updateCategory = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const deleteCategory = catchAsync(async (req: Request, res: Response) => {
+const deleteProduct = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const result = await CategoryService.deleteCategoryToDB(id);
+  const result = await ProductService.deleteProductToDB(id);
 
   sendResponse(res, {
     success: true,
@@ -72,9 +84,10 @@ const deleteCategory = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const CategoryController = {
-  createCategory,
-  getCategories,
-  updateCategory,
-  deleteCategory,
+export const ProductController = {
+  createProduct,
+  getProducts,
+  getProductById,
+  updateProduct,
+  deleteProduct,
 };
